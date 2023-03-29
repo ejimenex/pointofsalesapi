@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PointOfSales.Infraestructure\PointOfSales.Infraestructure.csproj" />
+    <ProjectReference Include="..\PointOfSales.Application\PointOfSales.Application.csproj" />
+    <ProjectReference Include="..\PointOfSales.Persistence\PointOfSales.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controller\AuthenticationController.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Controller\UserAccountController.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+</Project>

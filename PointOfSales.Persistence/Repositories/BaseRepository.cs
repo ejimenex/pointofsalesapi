@@ -15,6 +15,7 @@ namespace PointOfSales.Persistence.Repositories
         {
             try
             {
+            
             await _dbContext.Set<T>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
             return entity;

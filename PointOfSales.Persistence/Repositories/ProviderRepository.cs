@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PointOfSales.Application.Contracts.Persistence;
 using PointOfSales.Domain.Entities;
+using PointOfSales.Persistence.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +10,25 @@ using System.Threading.Tasks;
 
 namespace PointOfSales.Persistence.Repositories
 {
-    public class ClientRepository:BaseRepository<Client>, IClientRepository
+    public class ProviderRepository:BaseRepository<Supplier>, IProviderRepository
     {
-        public ClientRepository(PointOfSalesDbContext context):base(context)
+         private readonly ITokenRepository tokenRepository;
+        public ProviderRepository(PointOfSalesDbContext context,ITokenRepository tokenRepository):base(context)
         {
-
+            this.tokenRepository = tokenRepository;
         }
         public Task<bool> ExistPhoneNumber(string phoneNumber)
         {
             
-                var matches = _dbContext.Client.Any(c => c.Phone.Equals(phoneNumber));
+                var matches = _dbContext.Supplier.Any(c => c.Phone.Equals(phoneNumber));
                 return Task.FromResult(matches);
             
         }
 
-        public async Task<List<Client>> GetPaged(string filter, int page, int size,string user)
+        public async Task<List<Supplier>> GetPaged(string filter, int page, int size)
         {
-            var result= await _dbContext.Client
+            var user = tokenRepository.GetTokenData().Result.Email;
+            var result= await _dbContext.Supplier
                 .Where(x => !x.IsDeleted && x.UserEmail == user &&( x.Name.Contains(filter) || x.Phone.Contains(filter)))
                 .Skip((page - 1) * size)
                 .OrderBy(c=> c.CreatedDate)
@@ -37,7 +40,9 @@ namespace PointOfSales.Persistence.Repositories
 
         public async Task<int> GetTotalCount(string filter)
         {
-           return await _dbContext.Client.CountAsync(x =>!x.IsDeleted && (x.Name.Contains(filter) || x.Phone.Contains(filter)));
+           return await _dbContext.Supplier.CountAsync(x =>!x.IsDeleted && (x.Name.Contains(filter) || x.Phone.Contains(filter)));
         }
+
+      
     }
 }

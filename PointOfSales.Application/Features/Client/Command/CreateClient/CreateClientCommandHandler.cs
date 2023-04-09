@@ -1,8 +1,5 @@
-﻿
-
-
-
-using PointOfSales.Application.Exceptions;
+﻿using PointOfSales.Application.Exceptions;
+using PointOfSales.Application.Infraestructure;
 
 namespace PointOfSales.Application.Features.Client.Command.CreateClient
 {
@@ -17,6 +14,7 @@ namespace PointOfSales.Application.Features.Client.Command.CreateClient
         }
         public async Task<CreateClientCommandResponse> Handle(CreateClientCommand request, CancellationToken cancellationToken)
         {
+          
             var createClientResponse = new CreateClientCommandResponse();
             var validator = new CreateClientCommandValidation(this.clientRepository);
             var validationResult = await validator.ValidateAsync(request);

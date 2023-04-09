@@ -1,18 +1,22 @@
 ﻿using PointOfSales.Domain.Common;
 using PointOfSales.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using PointOfSales.Application.Infraestructure;
+using PointOfSales.Persistence.Contract;
 
 namespace PointOfSales.Persistence
 {
     public class PointOfSalesDbContext : DbContext
     {
-        public PointOfSalesDbContext(DbContextOptions<PointOfSalesDbContext> options) : base(options)
+        private readonly ITokenRepository tokenRepository;
+        public PointOfSalesDbContext(DbContextOptions<PointOfSalesDbContext> options,ITokenRepository tokenRepository) : base(options)
         {
-
+this.tokenRepository=tokenRepository;
         }
         public DbSet<Event> Event { get; set; }
         public DbSet<Language> Language { get; set; }
         public DbSet<Client> Client { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
         public DbSet<UserRegistrered> UserRegistrered { get; set; }
         public DbSet<InternalParamAllowredCountry> InternalParamAllowredCountry { get; set; }
         public DbSet<InternalParamaLanguage> InternalParamaLanguage { get; set; }
@@ -30,7 +34,7 @@ namespace PointOfSales.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.IsDeleted = false;
-                        entry.Entity.UserEmail = "edgarj.galvan@gmail.com";
+                        entry.Entity.UserEmail = tokenRepository.GetTokenData().Result.Email;
                         entry.Entity.CreatedDate = DateTime.Now;
                         break;
                     case EntityState.Modified:

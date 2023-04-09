@@ -4,13 +4,14 @@ using System.Text;
 using PointOfSales.Application.Exceptions;
 using System.Threading.Tasks;
 using PointOfSales.Application.Common;
+using PointOfSales.Application.Infraestructure;
 
 namespace PointOfSales.Application.Features.Account.Command.CreateAccountCommand
 {
     public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, CreateAccountResponse>
 
     {
-        private readonly IMapper _mapper;
+        private readonly IMapper _mapper;    
         private readonly IAccountRepository accountRepository;
         public CreateAccountCommandHandler(IMapper mapper, IAccountRepository accountRepository)
         {
@@ -21,6 +22,7 @@ namespace PointOfSales.Application.Features.Account.Command.CreateAccountCommand
         {
             try
             {
+               
                 var createAccountResponse = new CreateAccountResponse();
                 var validator = new CreateAccountCommandValidation(this.accountRepository);
                 var validationResult = await validator.ValidateAsync(request);

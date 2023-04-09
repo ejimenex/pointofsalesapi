@@ -54,7 +54,7 @@ namespace PointOfSales.Api.Controller
             if (filter is null) filter = "";
             return Ok(await _mediator.Send(new GetClientPagedQuery() { Filter = filter, Page = page, Size = size }));
         }
-        [HttpGet("GetById")]
+        [HttpGet("{Id}")]
         public async Task<ActionResult<GetClientByIdVm>> GetById(Guid Id)
         {
             return Ok(await _mediator.Send(new GetClientByIdQuery() { Id=Id}));
@@ -66,7 +66,7 @@ namespace PointOfSales.Api.Controller
             await _mediator.Send(updateClientCommand);
             return NoContent();
         }
-       [HttpDelete]
+       [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var deleteEventCommand = new DeleteClientCommand() { Id = id };

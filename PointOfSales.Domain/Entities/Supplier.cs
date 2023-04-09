@@ -13,6 +13,7 @@ namespace PointOfSales.Domain.Entities
         public string DocumentNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
+        public string Commentary{get;set;}
         public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace PointOfSales.Application.Contracts.Persistence
 {
-    public interface IClientRepository : IAsyncRepository<Client>
+    public interface IProviderRepository : IAsyncRepository<Supplier>
     {
-        Task<List<Client>> GetPaged(string filter, int page, int size,string user);
+        Task<List<Supplier>> GetPaged(string filter, int page, int size);
         Task<int> GetTotalCount(string filter);
         Task<bool> ExistPhoneNumber(string phoneNumber);
     }

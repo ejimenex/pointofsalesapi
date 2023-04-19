@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Queries.GetEventDetail
+﻿namespace PointOfSales.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetEvenDetailQuery : IRequest<EventDetailVm>
     {

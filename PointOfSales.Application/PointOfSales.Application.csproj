@@ -23,8 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Account\Command\UpdateAccountCommand\" />
-    <Folder Include="Features\MyDataCrud\Command\UpdateCommand\" />
-    <Folder Include="Features\MyDataCrud\Queries\" />
     <Folder Include="Features\PaymentType\Queries\" />
     <Folder Include="Features\Orders\Command\" />
     <Folder Include="Features\Orders\Queries\" />

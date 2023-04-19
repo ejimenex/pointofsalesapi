@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Commands.UpdateEvent
+﻿namespace PointOfSales.Application.Features.Events.Commands.UpdateEvent
 {
     public class UpdateEventCommand
         : IRequest

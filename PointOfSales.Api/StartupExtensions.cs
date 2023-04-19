@@ -1,8 +1,6 @@
-﻿using PointOfSales.Infraestructure;
-using PointOfSales.Application;
+﻿using PointOfSales.Application;
+using PointOfSales.Infraestructure;
 using PointOfSales.Persistence;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
 
 namespace PointOfSales.Api
 {

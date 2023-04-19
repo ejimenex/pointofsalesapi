@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PointOfSales.Application.Features.Login.Query.GetExistingUser
 {
@@ -22,7 +17,7 @@ namespace PointOfSales.Application.Features.Login.Query.GetExistingUser
         }
         private async Task<bool> ValidateUser(LoginQuery e, CancellationToken token)
         {
-            var exist= (await this.accountRepository.GetAvaliable(e.UserName));
+            var exist = (await this.accountRepository.GetAvaliable(e.UserName));
             return exist is not null;
         }
     }

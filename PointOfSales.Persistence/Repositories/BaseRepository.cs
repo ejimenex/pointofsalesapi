@@ -1,7 +1,4 @@
-﻿using PointOfSales.Application.Contracts.Persistence;
-using Microsoft.EntityFrameworkCore;
-
-namespace PointOfSales.Persistence.Repositories
+﻿namespace PointOfSales.Persistence.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
@@ -13,19 +10,10 @@ namespace PointOfSales.Persistence.Repositories
 
         public virtual async Task<T> AddAsync(T entity)
         {
-            try
-            {
-            
-            await _dbContext.Set<T>().AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
-            return entity;
-            }
-            catch (Exception e)
-            {
+                await _dbContext.Set<T>().AddAsync(entity);
+                await _dbContext.SaveChangesAsync();
+                return entity;          
 
-                throw;
-            }
-          
         }
 
         public virtual async Task DeleteAsync(T entity)

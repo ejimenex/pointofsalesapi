@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Application.Features.Client.Command.DeleteProviderCommand
+﻿namespace PointOfSales.Application.Features.Client.Command.DeleteProviderCommand
 {
-    public class DeleteProviderCommandHandler:IRequestHandler<DeleteProviderCommand>
+    public class DeleteProviderCommandHandler : IRequestHandler<DeleteProviderCommand>
     {
         private readonly IProviderRepository providerRepository;
         public DeleteProviderCommandHandler(IProviderRepository providerRepository)

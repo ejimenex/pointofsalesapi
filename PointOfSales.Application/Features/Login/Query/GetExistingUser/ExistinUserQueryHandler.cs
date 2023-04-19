@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PointOfSales.Application.Common;
-
-using System.Threading.Tasks;
+﻿using PointOfSales.Application.Common;
 using PointOfSales.Application.Exceptions;
 
 namespace PointOfSales.Application.Features.Login.Query.GetExistingUser
@@ -31,8 +25,8 @@ namespace PointOfSales.Application.Features.Login.Query.GetExistingUser
             }
             var login = await accountRepository.GetAvaliable(request.UserName);
             var pass = EncryptPasswordService.VerifyPassword(request.Password, login.Password);
-            if(!pass)
-                throw new  BadRequestException("The password you entered is not the correct");
+            if (!pass)
+                throw new BadRequestException("The password you entered is not the correct");
             if (login is not null && pass)
             {
                 token.Token = GenerateToken.generateJwtToken(login);

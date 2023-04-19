@@ -5,12 +5,12 @@ using PointOfSales.Application.Features.Client.Queries.GetProviderPaged;
 
 namespace PointOfSales.Application.Profiles
 {
-    public class ProviderProfile:Profile
+    public class ProviderProfile : Profile
     {
         public ProviderProfile()
         {
-         CreateMap<Supplier, CreateProviderDto>().ReverseMap();
-        CreateMap<Supplier, CreateProviderCommand>().ReverseMap();
+            CreateMap<Supplier, CreateProviderDto>().ReverseMap();
+            CreateMap<Supplier, CreateProviderCommand>().ReverseMap();
 
             CreateMap<Supplier, ProviderPagedDto>();
             CreateMap<Supplier, GetProviderPageVm>().ReverseMap();
@@ -19,6 +19,6 @@ namespace PointOfSales.Application.Profiles
 
             CreateMap<Supplier, GetProviderByIdVm>();
         }
-        
+
     }
 }

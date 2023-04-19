@@ -1,15 +1,8 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Persistence.Repositories
+﻿namespace PointOfSales.Persistence.Repositories
 {
-    public class UserAccountRepository:BaseRepository<UserRegistrered>,IAccountRepository
+    public class UserAccountRepository : BaseRepository<UserRegistrered>, IAccountRepository
     {
-        public UserAccountRepository(PointOfSalesDbContext context):base(context)
+        public UserAccountRepository(PointOfSalesDbContext context) : base(context)
         {
 
         }

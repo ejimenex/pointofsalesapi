@@ -1,5 +1,4 @@
-﻿using PointOfSales.Application.Contracts.Persistence;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace PointOfSales.Application.Features.Events.Commands.CreateEvent
 {

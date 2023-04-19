@@ -1,6 +1,4 @@
-﻿using PointOfSales.Domain.Common;
-
-namespace PointOfSales.Domain.Entities
+﻿namespace PointOfSales.Domain.Entities
 {
     public class Event : AuditableEntity
     {

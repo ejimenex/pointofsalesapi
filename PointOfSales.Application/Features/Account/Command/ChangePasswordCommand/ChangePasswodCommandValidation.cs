@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PointOfSales.Application.Features.Account.Command.ChangePasswordCommand
 
@@ -16,7 +11,7 @@ namespace PointOfSales.Application.Features.Account.Command.ChangePasswordComman
             RuleFor(p => p.NewPassword).NotEmpty().WithMessage("{PropertyName} is required").NotNull()
                 .MinimumLength(8).WithMessage("{PropertyName} need to have more than 8 characters")
                 .Matches(@"[A-Z]+").WithMessage("Your password must contain at least one uppercase letter.");
-        
+
         }
     }
 }

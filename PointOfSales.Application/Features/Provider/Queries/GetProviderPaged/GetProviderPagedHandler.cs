@@ -1,15 +1,10 @@
-﻿using AutoMapper;
-using PointOfSales.Application.Contracts.Persistence;
-using MediatR;
-using PointOfSales.Application.Infraestructure;
-
-namespace PointOfSales.Application.Features.Client.Queries.GetProviderPaged
+﻿namespace PointOfSales.Application.Features.Client.Queries.GetProviderPaged
 {
     public class GetProviderPagedHandler : IRequestHandler<GetProviderPagedQuery, GetProviderPageVm>
     {
         private readonly IProviderRepository providerRepository;
         private readonly IMapper mapper;
-        public GetProviderPagedHandler(IMapper mapper, 
+        public GetProviderPagedHandler(IMapper mapper,
         IProviderRepository providerRepository)
         {
             this.providerRepository = providerRepository;

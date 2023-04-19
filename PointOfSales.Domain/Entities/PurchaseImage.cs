@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Domain.Entities
+﻿namespace PointOfSales.Domain.Entities
 {
-    public class PurchaseImage:AuditableEntity
+    public class PurchaseImage : AuditableEntity
     {
         public Guid PurchaseId { get; set; }
         public string ImageUrl { get; set; }

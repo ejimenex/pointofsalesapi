@@ -1,7 +1,4 @@
-﻿using PointOfSales.Application.Contracts.Persistence;
-using PointOfSales.Domain.Entities;
-
-namespace PointOfSales.Persistence.Repositories
+﻿namespace PointOfSales.Persistence.Repositories
 {
     public class EventRepository : BaseRepository<Event>, IEventRepository
     {

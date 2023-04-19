@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Application.Features.LanguagePr.Queries.GetAllLanguage
+﻿namespace PointOfSales.Application.Features.LanguagePr.Queries.GetAllLanguage
 {
-    public class GetLanguageQueryHandler:IRequestHandler<AllLanguageQuery,List<LanguageVm>>
+    public class GetLanguageQueryHandler : IRequestHandler<AllLanguageQuery, List<LanguageVm>>
     {
         private readonly IAsyncRepository<Language> langRepository;
-        private readonly  IMapper mapper;
+        private readonly IMapper mapper;
         public GetLanguageQueryHandler(IAsyncRepository<Language> langRepository, IMapper mapper)
         {
             this.langRepository = langRepository;
-            this.mapper = mapper;   
+            this.mapper = mapper;
         }
 
         public async Task<List<LanguageVm>> Handle(AllLanguageQuery request, CancellationToken cancellationToken)
         {
             var result = await langRepository.ListAllAsync();
             var languages = mapper.Map<List<LanguageVm>>(result);
-            return languages;   
+            return languages;
         }
     }
 }

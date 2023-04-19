@@ -1,13 +1,10 @@
-﻿
-
-using PointOfSales.Application.Features.Client.Queries.GetClientPaged;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PointOfSales.Application.Features.Client.Command.CreateProvider;
+using PointOfSales.Application.Features.Client.Command.DeleteProviderCommand;
+using PointOfSales.Application.Features.Client.Command.UpdateProvider;
 using PointOfSales.Application.Features.Client.Queries.GetProviderById;
 using PointOfSales.Application.Features.Client.Queries.GetProviderPaged;
-using PointOfSales.Application.Features.Client.Command.UpdateProvider;
-using PointOfSales.Application.Features.Client.Command.DeleteProviderCommand;
-using PointOfSales.Application.Features.Client.Command.CreateProvider;
 
 namespace PointOfSales.Api.Controller
 {
@@ -21,7 +18,7 @@ namespace PointOfSales.Api.Controller
         {
             _mediator = mediator;
         }
-    
+
         [HttpPost]
         public async Task<ActionResult<CreateProviderCommandResponse>> Create(CreateProviderCommand createCategoryCommand)
         {
@@ -37,7 +34,7 @@ namespace PointOfSales.Api.Controller
         [HttpGet("{Id}")]
         public async Task<ActionResult<GetProviderByIdVm>> GetById(Guid Id)
         {
-            return Ok(await _mediator.Send(new GetProviderByIdQuery() { Id=Id}));
+            return Ok(await _mediator.Send(new GetProviderByIdQuery() { Id = Id }));
         }
 
         [HttpPut]
@@ -46,7 +43,7 @@ namespace PointOfSales.Api.Controller
             await _mediator.Send(updateProviderCommand);
             return NoContent();
         }
-       [HttpDelete("{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var deleteCommand = new DeleteProviderCommand() { Id = id };

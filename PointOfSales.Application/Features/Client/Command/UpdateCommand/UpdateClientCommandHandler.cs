@@ -1,14 +1,8 @@
-﻿using MediatR;
-using PointOfSales.Application.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PointOfSales.Application.Exceptions;
 
 namespace PointOfSales.Application.Features.Client.Command.UpdateCommand
 {
-    public class UpdateClientCommandHandler:IRequestHandler<UpdateClientCommand>
+    public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand>
     {
         private readonly IClientRepository clientRepository;
         private readonly IMapper _mapper;
@@ -24,7 +18,7 @@ namespace PointOfSales.Application.Features.Client.Command.UpdateCommand
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
             {
-                var errors = string.Join(',',validationResult.Errors);
+                var errors = string.Join(',', validationResult.Errors);
                 throw new BadRequestException(errors);
             }
             var clientToUpdate = await clientRepository.GetByIdAsync(request.Id);

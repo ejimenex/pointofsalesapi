@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Application.Features.UnitOfMeasure.Queries.All
+﻿namespace PointOfSales.Application.Features.UnitOfMeasure.Queries.All
 {
-    public class UnitOfMeasureQueryHandler:IRequestHandler<UnitOfMeasureQuery,List<UnitOfMeasureVm>>
+    public class UnitOfMeasureQueryHandler : IRequestHandler<UnitOfMeasureQuery, List<UnitOfMeasureVm>>
     {
         private readonly IAsyncRepository<InternalParamUnitOfMeasure> unitOfMeasureRepository;
         private readonly IMapper mapper;
-        public UnitOfMeasureQueryHandler(IMapper mapper,IAsyncRepository<InternalParamUnitOfMeasure> unitOfMeasureRepository)
+        public UnitOfMeasureQueryHandler(IMapper mapper, IAsyncRepository<InternalParamUnitOfMeasure> unitOfMeasureRepository)
         {
             this.mapper = mapper;
             this.unitOfMeasureRepository = unitOfMeasureRepository;

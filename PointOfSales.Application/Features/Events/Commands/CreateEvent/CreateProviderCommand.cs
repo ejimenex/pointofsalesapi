@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Commands.CreateEvent
+﻿namespace PointOfSales.Application.Features.Events.Commands.CreateEvent
 {
     public class CreateEventCommand : IRequest<Guid>
     {

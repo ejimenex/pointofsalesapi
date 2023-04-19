@@ -18,7 +18,7 @@ namespace PointOfSales.Api.Controller
         [HttpPost("Login")]
         public async Task<ActionResult<TokenResult>> Login(LoginQuery loginQuery)
         {
-          return Ok(await _mediator.Send(loginQuery));
+            return Ok(await _mediator.Send(loginQuery));
         }
 
     }

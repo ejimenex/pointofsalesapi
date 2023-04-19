@@ -1,9 +1,7 @@
-﻿using PointOfSales.Application.Contracts.Persistence;
-using PointOfSales.Persistence.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PointOfSales.Persistence.Contract;
+using PointOfSales.Persistence.Repositories;
 
 
 namespace PointOfSales.Persistence
@@ -19,8 +17,8 @@ namespace PointOfSales.Persistence
             services.AddScoped<IProviderRepository, ProviderRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IAccountRepository, UserAccountRepository>();
+            services.AddScoped<IMyDataRepository, MyDataRepository>();
             services.AddTransient<ITokenRepository, TokenRepo>();
-            // services.AddScoped<IAsyncRepository<AllowedCountryRepository>, AllowedCountryRepository>();
             return services;
         }
     }

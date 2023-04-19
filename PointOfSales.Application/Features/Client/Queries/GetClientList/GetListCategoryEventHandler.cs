@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using PointOfSales.Application.Contracts.Persistence;
-using PointOfSales.Domain.Entities;
-using MediatR;
-
-namespace PointOfSales.Application.Features.Client.Queries.GetClientList
+﻿namespace PointOfSales.Application.Features.Client.Queries.GetClientList
 {
     public class GetListClientEventHandler : IRequestHandler<GetClientQuery, List<GetClientListVm>>
     {

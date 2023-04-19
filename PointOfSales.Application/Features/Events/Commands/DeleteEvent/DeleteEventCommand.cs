@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Commands.DeleteEvent
+﻿namespace PointOfSales.Application.Features.Events.Commands.DeleteEvent
 {
     public class DeleteEventCommand : IRequest
     {

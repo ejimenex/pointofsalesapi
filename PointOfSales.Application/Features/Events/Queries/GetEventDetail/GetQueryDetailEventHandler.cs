@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using PointOfSales.Application.Contracts.Persistence;
-using PointOfSales.Domain.Entities;
-using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Queries.GetEventDetail
+﻿namespace PointOfSales.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetQueryDetalEventHandler : IRequestHandler<GetEvenDetailQuery, EventDetailVm>
     {

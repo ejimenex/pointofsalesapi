@@ -1,18 +1,7 @@
-﻿
-
-using PointOfSales.Application.Features.Client.Queries.GetClientPaged;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PointOfSales.Application.Features.Client.Command.CreateClient;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using PointOfSales.Application.Features.Client.Queries.GetClientList;
-using PointOfSales.Application.Features.Client.Command.UpdateCommand;
-using System;
-using PointOfSales.Application.Features.Client.Command.DeleteCommand;
-using PointOfSales.Application.Features.Account.Command.CreateAccountCommand;
 using PointOfSales.Application.Features.Account.Command.ChangePasswordCommand;
+using PointOfSales.Application.Features.Account.Command.CreateAccountCommand;
 
 namespace PointOfSales.Api.Controller
 {
@@ -26,7 +15,7 @@ namespace PointOfSales.Api.Controller
         {
             _mediator = mediator;
         }
- 
+
         [HttpPost]
         public async Task<ActionResult<CreateAccountResponse>> Create(CreateAccountCommand createAccountCommand)
         {

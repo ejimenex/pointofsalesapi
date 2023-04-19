@@ -1,17 +1,13 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PointOfSales.Application.Common
 {
     public static class GenerateToken
     {
-        
+
         public static string generateJwtToken(UserRegistrered user)
         {
             string key = "986ghgrgtru989ASdsaerew13434545435";
@@ -22,7 +18,7 @@ namespace PointOfSales.Application.Common
             var claims = new[] {
                 new Claim("id", user.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Sub, "atul"),
-                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new Claim(JwtRegisteredClaimNames.Email, ""),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var token = new JwtSecurityToken(key, issuer, claims, expires: DateTime.Now.AddHours(24), signingCredentials: credentials);
@@ -31,4 +27,3 @@ namespace PointOfSales.Application.Common
     }
 }
 
-  

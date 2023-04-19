@@ -1,5 +1,4 @@
 ﻿using PointOfSales.Application.Exceptions;
-using PointOfSales.Application.Infraestructure;
 
 namespace PointOfSales.Application.Features.Client.Command.CreateProvider
 {
@@ -14,18 +13,18 @@ namespace PointOfSales.Application.Features.Client.Command.CreateProvider
         }
         public async Task<CreateProviderCommandResponse> Handle(CreateProviderCommand request, CancellationToken cancellationToken)
         {
-          
+
             var createProviderResponse = new CreateProviderCommandResponse();
             var validator = new CreateProviderCommandValidation(this.providerRepository);
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
             {
                 createProviderResponse.Success = false;
-                    throw new ValidationException(validationResult);
+                throw new ValidationException(validationResult);
             }
             if (createProviderResponse.Success)
             {
-                var client = _mapper.Map<Domain.Entities.Supplier>(request) ;
+                var client = _mapper.Map<Domain.Entities.Supplier>(request);
                 client = await providerRepository.AddAsync(client);
                 createProviderResponse.Client = _mapper.Map<CreateProviderDto>(client);
             }

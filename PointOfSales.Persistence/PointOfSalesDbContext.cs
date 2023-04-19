@@ -1,7 +1,4 @@
 ﻿using PointOfSales.Domain.Common;
-using PointOfSales.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using PointOfSales.Application.Infraestructure;
 using PointOfSales.Persistence.Contract;
 
 namespace PointOfSales.Persistence
@@ -9,19 +6,22 @@ namespace PointOfSales.Persistence
     public class PointOfSalesDbContext : DbContext
     {
         private readonly ITokenRepository tokenRepository;
-        public PointOfSalesDbContext(DbContextOptions<PointOfSalesDbContext> options,ITokenRepository tokenRepository) : base(options)
+        public PointOfSalesDbContext(DbContextOptions<PointOfSalesDbContext> options, ITokenRepository tokenRepository) : base(options)
         {
-this.tokenRepository=tokenRepository;
+            this.tokenRepository = tokenRepository;
+
         }
         public DbSet<Event> Event { get; set; }
         public DbSet<Language> Language { get; set; }
         public DbSet<Client> Client { get; set; }
-        public DbSet<Supplier> Supplier { get; set; }
         public DbSet<UserRegistrered> UserRegistrered { get; set; }
         public DbSet<InternalParamAllowredCountry> InternalParamAllowredCountry { get; set; }
         public DbSet<InternalParamaLanguage> InternalParamaLanguage { get; set; }
         public DbSet<InternalParamCurrency> InternalParamCurrency { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<MyData> MyData { get; set; }
         public DbSet<InternalParamUnitOfMeasure> InternalParamUnitOfMeasure { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(PointOfSalesDbContext).Assembly);

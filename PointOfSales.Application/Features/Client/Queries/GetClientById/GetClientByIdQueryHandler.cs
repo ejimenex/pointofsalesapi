@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Application.Features.Client.Queries.GetClientById
+﻿namespace PointOfSales.Application.Features.Client.Queries.GetClientById
 {
-    public class GetClientByIdQueryHandler:IRequestHandler<GetClientByIdQuery,GetClientByIdVm>
+    public class GetClientByIdQueryHandler : IRequestHandler<GetClientByIdQuery, GetClientByIdVm>
     {
         private readonly IMapper mapper;
         private readonly IAsyncRepository<Domain.Entities.Client> clientRepository;
@@ -14,7 +8,7 @@ namespace PointOfSales.Application.Features.Client.Queries.GetClientById
         public GetClientByIdQueryHandler(IMapper mapper, IAsyncRepository<Domain.Entities.Client> clientRepository)
         {
             this.mapper = mapper;
-            this.clientRepository = clientRepository;   
+            this.clientRepository = clientRepository;
         }
 
         public async Task<GetClientByIdVm> Handle(GetClientByIdQuery request, CancellationToken cancellationToken)

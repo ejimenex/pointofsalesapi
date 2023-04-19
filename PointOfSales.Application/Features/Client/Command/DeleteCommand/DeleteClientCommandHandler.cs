@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointOfSales.Application.Features.Client.Command.DeleteCommand
+﻿namespace PointOfSales.Application.Features.Client.Command.DeleteCommand
 {
-    public class DeleteClientCommandHandler:IRequestHandler<DeleteClientCommand>
+    public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand>
     {
         private readonly IClientRepository clientRepository;
         public DeleteClientCommandHandler(IClientRepository clientRepository)

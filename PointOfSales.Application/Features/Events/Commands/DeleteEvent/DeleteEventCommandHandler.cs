@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using PointOfSales.Application.Contracts.Persistence;
-using PointOfSales.Domain.Entities;
-using MediatR;
-
-namespace PointOfSales.Application.Features.Events.Commands.DeleteEvent
+﻿namespace PointOfSales.Application.Features.Events.Commands.DeleteEvent
 {
     public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand>
     {

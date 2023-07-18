@@ -18,7 +18,7 @@ namespace PointOfSales.Application.Common
             var claims = new[] {
                 new Claim("id", user.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Sub, "atul"),
-                    new Claim(JwtRegisteredClaimNames.Email, ""),
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var token = new JwtSecurityToken(key, issuer, claims, expires: DateTime.Now.AddHours(24), signingCredentials: credentials);

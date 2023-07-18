@@ -6,7 +6,14 @@
         {
 
         }
-
+        public override Task<UserRegistrered> AddAsync(UserRegistrered entity)
+        {
+            entity.CreatedDate=DateTime.Now;
+            entity.IsDeleted=false;
+            entity.IsLocked=false;
+            entity.UserEmail="register@mail.com";
+            return base.AddAsync(entity);
+        }
         public async Task<UserRegistrered> GetAvaliable(string email)
         {
             var result = await _dbContext.UserRegistrered.Where(c => !c.IsDeleted && c.Email == email).FirstOrDefaultAsync();

@@ -21,6 +21,7 @@ namespace PointOfSales.Persistence
         public Task<TokenModel> GetTokenData()
         {
             var user = contextAccessor.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Replace("Bearer ", "");
+         
             var handler = new JwtSecurityTokenHandler();
             if (user is null)
                 throw new ArgumentException("Header request is null");

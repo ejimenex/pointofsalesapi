@@ -27,9 +27,9 @@ namespace PointOfSales.Api.Controller
         }
        
         [HttpGet("GetById")]
-        public async Task<ActionResult<GetByEmailVm>> GetById(string email)
+        public async Task<ActionResult<GetByEmailVm>> GetById()
         {
-            return Ok(await _mediator.Send(new MyDataByEmailQuery() { Email = email }));
+            return Ok(await _mediator.Send(new MyDataByEmailQuery()));
         }
 
         [HttpPut]

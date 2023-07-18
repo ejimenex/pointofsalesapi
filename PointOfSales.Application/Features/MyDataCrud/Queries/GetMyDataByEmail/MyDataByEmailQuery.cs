@@ -2,6 +2,6 @@
 {
     public class MyDataByEmailQuery:IRequest<GetByEmailVm>
     {
-        public string Email { get; set; }
+        
     }
 }

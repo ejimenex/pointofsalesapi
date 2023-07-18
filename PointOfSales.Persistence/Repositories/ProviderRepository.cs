@@ -19,7 +19,7 @@ namespace PointOfSales.Persistence.Repositories
 
         public async Task<List<Supplier>> GetPaged(string filter, int page, int size)
         {
-            var user = tokenRepository.GetTokenData().Result.Email;
+            var user = tokenRepository.GetEmail();
             var result = await _dbContext.Supplier
                 .Where(x => !x.IsDeleted && x.UserEmail == user && (x.Name.Contains(filter) || x.Phone.Contains(filter)))
                 .Skip((page - 1) * size)

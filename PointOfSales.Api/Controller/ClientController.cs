@@ -50,7 +50,7 @@ namespace PointOfSales.Api.Controller
             if (filter is null) filter = "";
             return Ok(await _mediator.Send(new GetClientPagedQuery() { Filter = filter, Page = page, Size = size }));
         }
-        [HttpGet("GetById")]
+        [HttpGet("{Id}")]
         public async Task<ActionResult<GetClientByIdVm>> GetById(Guid Id)
         {
             return Ok(await _mediator.Send(new GetClientByIdQuery() { Id = Id }));

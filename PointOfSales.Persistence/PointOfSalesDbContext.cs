@@ -14,6 +14,7 @@ namespace PointOfSales.Persistence
         public DbSet<Event> Event { get; set; }
         public DbSet<Language> Language { get; set; }
         public DbSet<Client> Client { get; set; }
+        public DbSet<Product> Product { get; set; }
         public DbSet<UserRegistrered> UserRegistrered { get; set; }
         public DbSet<InternalParamAllowredCountry> InternalParamAllowredCountry { get; set; }
         public DbSet<InternalParamaLanguage> InternalParamaLanguage { get; set; }

@@ -1,7 +1,14 @@
-namespace PointOfSales.Application.Features.Service.Command.CreateService
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PointOfSales.Application.Features.Service.Command.CreateServiceCommand
 {
-    public class CreateServiceCommand : IRequest<CreateServiceCommandResponse>
+    public class CreateServiceDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsService { get; set; }
         public string UnitOfMeasureCode { get; set; }

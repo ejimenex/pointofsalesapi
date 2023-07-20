@@ -15,8 +15,7 @@ namespace PointOfSales.Application.Features.Account.Command.CreateAccountCommand
         }
         public async Task<CreateAccountResponse> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
+            
                 var createAccountResponse = new CreateAccountResponse();
                 var validator = new CreateAccountCommandValidation(this.accountRepository);
                 var validationResult = await validator.ValidateAsync(request);
@@ -36,12 +35,6 @@ namespace PointOfSales.Application.Features.Account.Command.CreateAccountCommand
                 }
                 return createAccountResponse;
             }
-            catch (Exception es)
-            {
-
-                throw;
-            }
-
+         
         }
     }
-}

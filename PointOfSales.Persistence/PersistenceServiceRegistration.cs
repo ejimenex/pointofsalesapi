@@ -14,6 +14,7 @@ namespace PointOfSales.Persistence
             option.UseSqlServer(configuration.GetConnectionString("Context")));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IServiceRepository, ProductRepository>();
             services.AddScoped<IProviderRepository, ProviderRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IAccountRepository, UserAccountRepository>();
